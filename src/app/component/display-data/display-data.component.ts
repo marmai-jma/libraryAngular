@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { timeout } from 'q';
 
 @Component({
   selector: 'app-display-data',
@@ -11,6 +10,9 @@ export class DisplayDataComponent implements OnInit {
   nbr = 3+5;
   stateButton = false;
   srcImg = 'assets/index.jpg';
+  variable ='';
+  values='';
+  myProperty='';
 
   constructor() { }
 
@@ -18,6 +20,14 @@ export class DisplayDataComponent implements OnInit {
     this.stateButton=!this.stateButton;
   }
 
+  onClickMe(){
+    this.variable='bonjour la promo';
+  }
+
+  onKey(event:any)
+  {
+    this.variable += event.target.value + '|';
+  }
   ngOnInit() {
   }
 
