@@ -8,11 +8,14 @@
 </ng-template>
 
 <ng-template #elseBlock>
-    <li *ngFor ="let bibli of libraries">
+    <app-library *ngFor = "let bibli of libraries"
+        [library] = "bibli"></app-library>
+    <!-- <li *ngFor ="let bibli of libraries">
+
         {{bibli.label}}
         {{bibli.type}}
         {{bibli.directorDTO.name}}
         {{bibli.directorDTO.surname | uppercase}}
-    </li>
+    </li> -->
 </ng-template>
 

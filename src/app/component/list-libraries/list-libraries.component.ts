@@ -19,9 +19,12 @@ export class ListLibrariesComponent implements OnInit {
   new AdressDTO('Paris', 12, 75011, 'avenue de Nulle Part'), new DirectorDTO('Madame','De la Fayette')),
 ]
 
+
+
   constructor() { }
 
   ngOnInit() {
+    this.libraries = this.libraries.filter(lib => {return lib.type === 'PUBLIQUE';});
   }
 
 }
