@@ -1,5 +1,10 @@
 <p>display-data works! {{name}} OK</p>
 <p>La somme de 3 et 5 est : {{nbr}}</p>
 <p>La somme de 3 et 5 est : {{3+5}}</p>
-<button  [disabled]="stateButton" (click)="switchButton()"> sauvegarder
+<button  [disabled]="stateButton" (click)="switchButton()"> Sauvegarder
     <img [src]="srcImg"> </button>
+<p>{{variable}}</p>
+<button  (click)="onClickMe()"> petit bouton
+            </button>
+<br>
+    <input label ="mon texte" (keyup)= "onKey($event)">
