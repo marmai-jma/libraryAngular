@@ -1,3 +1,6 @@
+<img src="assets/nouveau.png">
+<h1>Mettre à jour la bibliothèque</h1>
+
 <form [formGroup]="libraryForm" (ngSubmit)="onSubmit()">
     <div class = "line">
         <label>
@@ -14,49 +17,61 @@
         </label>
     </div>
 
-    <div class = "line">
-        <label>
-                Prénom
-                <input firstName="text" formControlName = "firstName">
-        </label>
-     </div>
+    <div class="shape">
+        <h3>Directeur:</h3>
+        <div class = "line">
+                <label>
+                        Prénom
+                        <input firstName="text" formControlName = "firstName">
+                </label>
+             </div>
 
 
-    <div class = "line">
+            <div class = "line">
+                    <label>
+                        Nom
+                        <input lastName="text" formControlName = "lastName">
+                    </label>
+            </div>
+    </div>
+
+    <div class = "shape">
+        <h3>Adresse</h3>
+        <div class = "line">
+                <label>
+                    Ville
+                    <input city="text" formControlName = "city">
+                </label>
+        </div>
+
+        <div class = "line">
             <label>
-                Nom
-                <input lastName="text" formControlName = "lastName">
-            </label>
-    </div>
-
-    <div class = "line">
-            <label>
-                Ville
-                <input city="text" formControlName = "city">
-            </label>
-    </div>
-
-    <div class = "line">
-        <label>
-                Numéro
-                <input numberStreet="text" formControlName = "numberStreet">
-        </label>
-    </div>
-
-    <div class = "line">
-        <label>
-                Code Postal
-                <input postalCode="text" formControlName = "postalCode">
-        </label>
-    </div>
-
-    <div class = "line">
-            <label>
-                    Rue
-                    <input street="text" formControlName = "street">
+                    Numéro
+                    <input numberStreet="text" formControlName = "numberStreet">
             </label>
         </div>
 
+        <div class = "line">
+            <label>
+                    Code Postal
+                    <input postalCode="text" formControlName = "postalCode">
+            </label>
+        </div>
 
-    <button>Sauvegarder</button>
+        <div class = "line">
+                <label>
+                        Rue
+                        <input street="text" formControlName = "street">
+                </label>
+            </div>
+
+    </div>
+
+
+    <div class = "line">
+            <button>Sauvegarder</button>
+    </div>
+
+
+
 </form>
