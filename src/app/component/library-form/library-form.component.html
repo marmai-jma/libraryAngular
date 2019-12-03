@@ -1,12 +1,62 @@
 <form [formGroup]="libraryForm" (ngSubmit)="onSubmit()">
-    <input label="text" formControlName = "label">
-    <input type="text" formControlName = "type">
-    <input firstName="text" formControlName = "firstName">
-    <input lastName="text" formControlName = "lastName">
-    <input city="text" formControlName = "city">
-    <input numberStreet="text" formControlName = "numberStreet">
-    <input postalCode="text" formControlName = "postalCode">
-    <input street="text" formControlName = "street">
+    <div class = "line">
+        <label>
+            Bibliothèque
+            <input label="text" formControlName = "label">
+        </label>
+    </div>
+
+
+    <div class = "line">
+        <label>
+            Type
+            <input type="text" formControlName = "type">
+        </label>
+    </div>
+
+    <div class = "line">
+        <label>
+                Prénom
+                <input firstName="text" formControlName = "firstName">
+        </label>
+     </div>
+
+
+    <div class = "line">
+            <label>
+                Nom
+                <input lastName="text" formControlName = "lastName">
+            </label>
+    </div>
+
+    <div class = "line">
+            <label>
+                Ville
+                <input city="text" formControlName = "city">
+            </label>
+    </div>
+
+    <div class = "line">
+        <label>
+                Numéro
+                <input numberStreet="text" formControlName = "numberStreet">
+        </label>
+    </div>
+
+    <div class = "line">
+        <label>
+                Code Postal
+                <input postalCode="text" formControlName = "postalCode">
+        </label>
+    </div>
+
+    <div class = "line">
+            <label>
+                    Rue
+                    <input street="text" formControlName = "street">
+            </label>
+        </div>
+
 
     <button>Sauvegarder</button>
 </form>
