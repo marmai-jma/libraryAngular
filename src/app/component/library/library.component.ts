@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { LibraryDTO } from 'src/app/shared-data/library-dto';
 
+
 @Component({
   selector: 'app-library',
   templateUrl: './library.component.html',
@@ -9,6 +10,7 @@ import { LibraryDTO } from 'src/app/shared-data/library-dto';
 export class LibraryComponent implements OnInit {
   @Input()
   library: LibraryDTO;
+
 
   constructor() { }
 

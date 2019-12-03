@@ -1,5 +1,15 @@
-<h1>{{library.label}}
-        {{library.type}}
-        {{library.directorDTO.name}}
-        {{library.directorDTO.surname | uppercase}}
-</h1>
+<div class="library">
+        <div class="label"> {{library.label}}</div>
+          <div class="adress">
+            <div class="rue">
+                {{library.adresseDTO.numberStreet + ' ' + library.adresseDTO.street}}
+            </div>
+            <div class="codePostalVille">
+                {{library.adresseDTO.postalCode + ' ' + library.adresseDTO.city}}
+            </div>
+
+        </div>
+        <div class="director">
+                {{library.directorDTO.name + ' ' + library.directorDTO.surname.toUpperCase()}}
+        </div>
+    </div>
