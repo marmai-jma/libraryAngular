@@ -1,5 +1,5 @@
 <p>list-libraries works!</p>
-<ul *ngIf="libraries.length > 5 ; then  thenBlock else elseBlock">
+<!-- <ul *ngIf="libraries.length > 6 ; then  thenBlock else elseBlock">
     </ul>
 
 <ng-template #thenBlock>
@@ -7,7 +7,7 @@
 
 </ng-template>
 
-<ng-template #elseBlock>
+<ng-template #elseBlock> -->
     <app-library *ngFor = "let bibli of libraries"
         [library] = "bibli"></app-library>
     <!-- <li *ngFor ="let bibli of libraries">
@@ -17,5 +17,5 @@
         {{bibli.directorDTO.name}}
         {{bibli.directorDTO.surname | uppercase}}
     </li> -->
-</ng-template>
+<!-- </ng-template> -->
 

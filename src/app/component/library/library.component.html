@@ -2,14 +2,14 @@
         <div class="label"> {{library.label}}</div>
           <div class="adress">
             <div class="rue">
-                {{library.adresseDTO.numberStreet + ' ' + library.adresseDTO.street}}
+                {{library.addressDTO.numberStreet + ' ' + library.addressDTO.street}}
             </div>
             <div class="codePostalVille">
-                {{library.adresseDTO.postalCode + ' ' + library.adresseDTO.city}}
+                {{library.addressDTO.postalCode + ' ' + library.addressDTO.city}}
             </div>
 
         </div>
         <div class="director">
-                {{library.directorDTO.name + ' ' + library.directorDTO.surname.toUpperCase()}}
+                {{library.directorDTO.firstname + ' ' + library.directorDTO.lastname.toUpperCase()}}
         </div>
     </div>

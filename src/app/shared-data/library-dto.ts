@@ -3,10 +3,10 @@ import { DirectorDTO } from './director-dto';
 
 export class LibraryDTO {
     constructor(
-        public id:number,
+        public id:string,
         public label : string,
         public type: string,
-        public adresseDTO: AdressDTO,
+        public addressDTO: AdressDTO,
         public directorDTO: DirectorDTO
     )
     {}

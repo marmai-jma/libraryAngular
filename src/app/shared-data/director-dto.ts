@@ -1,7 +1,7 @@
 export class DirectorDTO {
     constructor(
-        public name: string,
-        public surname: string
+        public firstname: string,
+        public lastname: string
     ){ }
 }
 
