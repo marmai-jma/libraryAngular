@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LibraryDTO } from 'src/app/shared-data/library-dto';
 import { AdressDTO } from 'src/app/shared-data/adress-dto';
 import { DirectorDTO } from 'src/app/shared-data/director-dto';
+import { LibraryService } from 'src/app/services/library.service';
 
 @Component({
   selector: 'app-list-libraries',
@@ -21,10 +22,14 @@ export class ListLibrariesComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(private libraryservice: LibraryService) { }
 
   ngOnInit() {
-    this.libraries = this.libraries.filter(lib => {return lib.type === 'PUBLIQUE';});
+    // this.libraries = this.libraries.filter(lib => {return lib.type === 'PUBLIQUE';});
+    this.libraryservice.getAllLibraries().subscribe((libraries) =>
+            {this.libraries = libraries;}
+    );
+
   }
 
 }
