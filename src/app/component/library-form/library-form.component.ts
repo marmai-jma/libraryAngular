@@ -5,6 +5,7 @@ import { LibraryDTO } from 'src/app/shared-data/library-dto';
 import { DirectorDTO } from 'src/app/shared-data/director-dto';
 import { AdressDTO } from 'src/app/shared-data/adress-dto';
 import { LibraryService } from 'src/app/services/library.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -26,7 +27,7 @@ export class LibraryFormComponent implements OnInit {
   });
 
   // Pour injecter un service, il est impératif de mettre dans le constructor en private le service qu'on veut injecter
-  constructor(private libraryService: LibraryService) { }
+  constructor(private libraryService: LibraryService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -42,6 +43,7 @@ export class LibraryFormComponent implements OnInit {
 
     this.libraryService.addLibrary(libraryDTO).subscribe(() => {
         console.log('Success');
+        this.router.navigate(['/liste']);
       },
       (error) => {console.log("Une erreur est arrivée: " + error)
     });
