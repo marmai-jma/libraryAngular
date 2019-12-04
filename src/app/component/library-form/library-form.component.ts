@@ -42,7 +42,9 @@ export class LibraryFormComponent implements OnInit {
 
     this.libraryService.addLibrary(libraryDTO).subscribe(() => {
         console.log('Success');
-      });
+      },
+      (error) => {console.log("Une erreur est arrivée: " + error)
+    });
   }
 
   get city(){return this.libraryForm.get('city');}
