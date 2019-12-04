@@ -19,6 +19,13 @@
                 Le libellé doit au minimum faire 4 caractères
             </div>
     </div>
+    <div *ngIf="type.invalid &&(type.dirty || type.touched)"
+        class="alert">
+        <div *ngIf ="type.errors.availabletype">
+            Le type doit être PUBLIC ou NATIONAL.
+        </div>
+
+    </div>
 
     <!-- Mise en forme -->
     <div class = "line">
@@ -89,7 +96,7 @@
 
 
     <div class = "line">
-            <button>Sauvegarder</button>
+            <button [disabled]="!libraryForm.valid">Sauvegarder</button>
     </div>
 
 
