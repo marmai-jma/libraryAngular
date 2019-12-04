@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-library-form',
@@ -8,11 +8,12 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class LibraryFormComponent implements OnInit {
   libraryForm = new FormGroup ({
-    label : new FormControl(''),
+    label : new FormControl('',[Validators.required,
+                                Validators.minLength(4)]),
     type: new FormControl(''),
     firstName : new FormControl(''),
     lastName : new FormControl(''),
-    city :new FormControl(''),
+    city :new FormControl('', [Validators.required]),
     numberStreet : new FormControl(''),
     postalCode : new FormControl(''),
     street: new FormControl(''),
@@ -27,4 +28,6 @@ export class LibraryFormComponent implements OnInit {
     console.warn(this.libraryForm.value);
   }
 
+  get city(){return this.libraryForm.get('city');}
+  get label(){return this.libraryForm.get('label');}
 }
