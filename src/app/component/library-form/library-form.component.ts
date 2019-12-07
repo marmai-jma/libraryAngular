@@ -5,7 +5,7 @@ import { LibraryDTO } from 'src/app/shared-data/library-dto';
 import { DirectorDTO } from 'src/app/shared-data/director-dto';
 import { AdressDTO } from 'src/app/shared-data/adress-dto';
 import { LibraryService } from 'src/app/services/library.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 })
 export class LibraryFormComponent implements OnInit {
   libraryForm = new FormGroup ({
+    id: new FormControl(''),
     label : new FormControl('',[Validators.required,
                                 Validators.minLength(4)]),
     type: new FormControl('', [typesValidator()]),
@@ -27,26 +28,53 @@ export class LibraryFormComponent implements OnInit {
   });
 
   // Pour injecter un service, il est impératif de mettre dans le constructor en private le service qu'on veut injecter
-  constructor(private libraryService: LibraryService, private router: Router) { }
+  constructor(private libraryService: LibraryService, private router: Router,private route: ActivatedRoute) { }
 
   ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
+
+    if (id !== null) {
+      this.libraryService.getLibrary(id).subscribe(library => {
+        this.libraryForm.controls['id'].setValue(library.id);
+        this.libraryForm.controls['id'].setValue(library.id);
+        this.libraryForm.controls['label'].setValue(library.label);
+        this.libraryForm.controls['type'].setValue(library.type);
+        this.libraryForm.controls['firstName'].setValue(library.directorDTO.firstname);
+        this.libraryForm.controls['lastName'].setValue(library.directorDTO.lastname);
+        this.libraryForm.controls['city'].setValue(library.addressDTO.city);
+        this.libraryForm.controls['numberStreet'].setValue(library.addressDTO.numberStreet);
+        this.libraryForm.controls['postalCode'].setValue(library.addressDTO.postalCode);
+        this.libraryForm.controls['street'].setValue(library.addressDTO.street);
+      });
+    }
   }
 
   onSubmit(){
-    console.warn(this.libraryForm.value);
-    const libraryDTO = new LibraryDTO(null, this.libraryForm.value.label, this.libraryForm.value.type,
+    // console.warn(this.libraryForm.value);
+    // renseigner la librarie DTO pour le back à partir des données saisies dans le formulaire
+    const libraryDTO = new LibraryDTO(this.libraryForm.value.id, this.libraryForm.value.label, this.libraryForm.value.type,
       new AdressDTO (this.libraryForm.value.city, this.libraryForm.value.numberStreet,
         this.libraryForm.value.postalCode, this.libraryForm.value.street),
       new DirectorDTO(this.libraryForm.value.firstName, this.libraryForm.value.lastName));
 
-    console.log(libraryDTO);
+    // console.log(libraryDTO);
 
-    this.libraryService.addLibrary(libraryDTO).subscribe(() => {
-        console.log('Success');
+    // si l'identifiant est non renseigné, on est en création, sinon en modification
+    if (libraryDTO.id === null || libraryDTO.id === undefined || libraryDTO.id === '') {
+      this.libraryService.addLibrary(libraryDTO).subscribe(() => {
+        console.log('Success add');
         this.router.navigate(['/liste']);
       },
-      (error) => {console.log("Une erreur est arrivée: " + error)
+      (error) => {console.log('Une erreur est arrivée en création: ' + error);
     });
+    } else {
+      this.libraryService.updateLibrary(libraryDTO).subscribe(() => {
+        console.log('Success update');
+        this.router.navigate(['/liste']);
+      },
+      (error) => {console.log('Une erreur est arrivée en modification: ' + error);
+      });
+    }
   }
 
   get city(){return this.libraryForm.get('city');}

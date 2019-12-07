@@ -1,5 +1,7 @@
 <div class="library">
-        <div class="label"> {{library.label}}</div>
+        <div class="label"> {{library.label}}
+            <a [routerLink]="link" (click)="display()">Modifier</a>
+        </div>
           <div class="adress">
             <div class="rue">
                 {{library.addressDTO.numberStreet + ' ' + library.addressDTO.street}}

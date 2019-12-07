@@ -7,6 +7,7 @@ import { LibraryFormComponent } from './component/library-form/library-form.comp
 const routes: Routes = [
   { path: 'liste', component: ListLibrariesComponent} ,
   {path: 'nouveau', component: LibraryFormComponent},
+  {path: 'modifier/:id', component: LibraryFormComponent},
   {path: '', redirectTo : '/liste', pathMatch: 'full'}
 ];
 
