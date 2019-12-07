@@ -32,4 +32,9 @@ export class LibraryService {
   updateLibrary(libraryDto : LibraryDTO): Observable<any> {
     return this.http.put<any>('http://localhost:8080/libraries/'+ libraryDto.id, libraryDto, this.httpOptions);
   }
+
+  // Observable - recupération d'une library par id
+  deleteLibrary(id : string): Observable<string> {
+    return this.http.delete<string>('http://localhost:8080/libraries/'+ id);
+  }
 }

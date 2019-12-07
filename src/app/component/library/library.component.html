@@ -1,7 +1,10 @@
 <div class="library">
-        <div class="label"> {{library.label}}
-            <a [routerLink]="link" (click)="display()">Modifier</a>
+        <div>
+            <a [routerLink]="link" (click)="display()" class="fa fa-edit"></a>
+            <a class="fa fa-trash" (click)="delete()"></a>
         </div>
+
+        <div class="label"> {{library.label}}</div>
           <div class="adress">
             <div class="rue">
                 {{library.addressDTO.numberStreet + ' ' + library.addressDTO.street}}
