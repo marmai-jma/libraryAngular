@@ -1,0 +1,19 @@
+<p>library-prime works!</p>
+<p-table [value]="libraries">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Type</th>
+                <th>Libellé</th>
+                <th>Directeur</th>
+                <th>Adresse</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-library>
+            <tr>
+                <td>{{library.type}}</td>
+                <td>{{library.label}}</td>
+                <td>{{library.directorDTO.firstname + ' ' + library.directorDTO.lastname }}</td>
+                <td>{{library.addressDTO.numberStreet + ' ' + library.addressDTO.street + ' ' + library.addressDTO.postalCode + ' ' + library.addressDTO.city}}</td>
+            </tr>
+        </ng-template>
+    </p-table>

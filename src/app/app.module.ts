@@ -10,6 +10,8 @@ import { DisplayDataComponent } from './component/display-data/display-data.comp
 import { ListLibrariesComponent } from './component/list-libraries/list-libraries.component';
 import { LibraryFormComponent } from './component/library-form/library-form.component';
 import { SearchComponent } from './component/search/search.component';
+import { LibraryPrimeComponent } from './component/library-prime/library-prime.component';
+import {TableModule} from 'primeng/table';
 
 
 
@@ -22,6 +24,7 @@ import { SearchComponent } from './component/search/search.component';
     ListLibrariesComponent,
     LibraryFormComponent,
     SearchComponent,
+    LibraryPrimeComponent,
 
   ],
   imports: [
@@ -29,7 +32,8 @@ import { SearchComponent } from './component/search/search.component';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
