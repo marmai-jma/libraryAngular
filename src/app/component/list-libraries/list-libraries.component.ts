@@ -9,6 +9,8 @@ import { LibraryService } from 'src/app/services/library.service';
 })
 export class ListLibrariesComponent implements OnInit {
   libraries : LibraryDTO[] = [];
+  messageEventEmitter : string = '';
+
 
   constructor(private libraryservice: LibraryService) { }
 
@@ -27,8 +29,10 @@ export class ListLibrariesComponent implements OnInit {
        this.libraryservice.getAllLibraries().subscribe((libraries) =>{this.libraries = libraries; });
       }
     });
+  }
 
-
+  onLabelEmitter(label){
+    this.messageEventEmitter = 'vous avez cliqué sur la ' + label ;
   }
 
 }
