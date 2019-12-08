@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { LibraryDTO } from '../shared-data/library-dto';
 
 @Injectable({
@@ -10,6 +10,8 @@ export class LibraryService {
   httpOptions = {
     headers: new HttpHeaders({'Content-type' : 'application/json'})
   };
+
+  searchValue: Subject<string> = new Subject<string>();
 
   constructor(private http: HttpClient) { }
 

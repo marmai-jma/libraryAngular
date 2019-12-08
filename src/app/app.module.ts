@@ -9,6 +9,7 @@ import { LibraryComponent } from './component/library/library.component';
 import { DisplayDataComponent } from './component/display-data/display-data.component';
 import { ListLibrariesComponent } from './component/list-libraries/list-libraries.component';
 import { LibraryFormComponent } from './component/library-form/library-form.component';
+import { SearchComponent } from './component/search/search.component';
 
 
 
@@ -20,6 +21,7 @@ import { LibraryFormComponent } from './component/library-form/library-form.comp
     DisplayDataComponent,
     ListLibrariesComponent,
     LibraryFormComponent,
+    SearchComponent,
 
   ],
   imports: [
